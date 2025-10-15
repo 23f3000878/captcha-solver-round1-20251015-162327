@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Captcha Solver</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Inline CSS for styling */
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        .captcha-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: .5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .captcha-checkbox {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="captcha-container">
+        <h3>Please verify</h3>
+        <img src="data:image/png;base64,..." alt="Captcha Image" class="img-fluid mb-3"/>
+
+        <!-- Captcha Checkbox -->
+        <div class="captcha-checkbox">
+            <input type="checkbox" id="captchaCheckbox" onclick="verifyCaptcha()">
+            <label for="captchaCheckbox">I'm not a robot</label>
+        </div>
+
+        <p id="captchaMessage" class="mt-3"></p>
+    </div>
+
+    <!-- Inline JavaScript for functionality -->
+    <script>
+        function verifyCaptcha() {
+            const checkbox = document.getElementById('captchaCheckbox');
+            const message = document.getElementById('captchaMessage');
+
+            if (checkbox.checked) {
+                message.style.color = 'green';
+                message.textContent = 'Captcha solved!';
+            } else {
+                message.style.color = 'red';
+                message.textContent = 'Please verify that you are not a robot.';
+            }
+        }
+    </script>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
